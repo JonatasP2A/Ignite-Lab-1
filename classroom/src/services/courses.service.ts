@@ -37,7 +37,7 @@ export class CoursesService {
 
     const courseAlreadyExists = await this.prisma.course.findUnique({
       where: {
-        slug,
+        slug: courseSlug,
       },
     });
 

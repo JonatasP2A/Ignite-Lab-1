@@ -39,12 +39,12 @@ export class PurchaseController {
       });
     }
 
-    const course = await this.coursesService.getCourseBySlug(
+    let course = await this.coursesService.getCourseBySlug(
       payload.product.slug,
     );
 
     if (!course) {
-      await this.coursesService.createCourse({
+      course = await this.coursesService.createCourse({
         title: payload.product.title,
       });
     }
